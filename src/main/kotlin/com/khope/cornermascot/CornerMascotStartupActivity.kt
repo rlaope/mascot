@@ -25,16 +25,21 @@ class CornerMascotStartupActivity : StartupActivity {
 
             val settings = MascotSettingsState.instance
 
-            val image: Image = when {
-                settings.imagePath.isNotBlank() && File(settings.imagePath).exists() ->
+            val rawImage: Image =
+                if (settings.imagePath.isNotBlank() && File(settings.imagePath).exists()) {
                     ImageIcon(settings.imagePath).image
-                else ->
+                } else {
                     ImageIcon(javaClass.classLoader.getResource("icons/mascot.png")).image
-            }
+                }
+
+            val fixedWidth = 120
+            val fixedHeight = 120
+
+            val image = rawImage.getScaledInstance(fixedWidth, fixedHeight, Image.SCALE_SMOOTH)
 
             val component = object : JComponent() {
                 override fun getPreferredSize(): Dimension =
-                    Dimension(image.getWidth(null), image.getHeight(null))
+                    Dimension(fixedWidth, fixedHeight)
 
                 override fun paintComponent(g: Graphics) {
                     super.paintComponent(g)
@@ -46,10 +51,9 @@ class CornerMascotStartupActivity : StartupActivity {
 
             fun updatePosition() {
                 val size = layered.size
-                val compSize = component.preferredSize
-                val x = size.width - compSize.width - 30
-                val y = size.height - compSize.height - 40
-                component.setBounds(x, y, compSize.width, compSize.height)
+                val x = size.width - fixedWidth - 30
+                val y = size.height - fixedHeight - 40
+                component.setBounds(x, y, fixedWidth, fixedHeight)
                 component.revalidate()
                 component.repaint()
             }
