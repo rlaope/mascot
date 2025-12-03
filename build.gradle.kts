@@ -31,6 +31,7 @@ tasks {
     }
 }
 
-publishPlugin {
+tasks.publishPlugin {
+    dependsOn("buildPlugin")
     token.set(System.getenv("JB_PLUGIN_TOKEN"))
 }
