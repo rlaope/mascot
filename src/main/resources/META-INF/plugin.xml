@@ -4,7 +4,7 @@
     <vendor email="piyrw9754@gmail.com" url="https://github.com/rlaope">khope</vendor>
     <version>1.0.1</version>
 
-    <idea-version since-build="241"/>
+    <idea-version since-build="241" until-build="252.*"/>
 
     <description><![CDATA[
         <p>
