@@ -13,6 +13,8 @@ Users can fully customize the mascot image via the Settings UI without rebuildin
 
 ---
 
+![](/assets/roxy.png)
+
 # How to Build
 
 Run the plugin build command:
@@ -50,8 +52,6 @@ You can:
 * Apply immediately
 
 ---
-
-![](/assets/roxy.png)
 
 # Marketplace Upload Guide
 
