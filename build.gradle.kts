@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.khope.cornermascot"
-version = "1.0.0"
+version = "1.0.2"
 
 repositories {
     mavenCentral()
@@ -20,6 +20,7 @@ intellij {
 tasks {
     patchPluginXml {
         sinceBuild.set("241")
+        untilBuild.set("252.*")
     }
 
     compileKotlin {
