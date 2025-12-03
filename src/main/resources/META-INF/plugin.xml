@@ -7,7 +7,24 @@
     <idea-version since-build="241"/>
 
     <description><![CDATA[
-        This plugin displays a small mascot image at the bottom-right corner of the IntelliJ window, and allows users to set a custom local image through the settings panel.
+        <p>
+            This plugin displays a small mascot image at the bottom-right corner of the IntelliJ window.
+            Users can also customize the mascot by choosing any local image file through the settings panel.
+        </p>
+
+        <h3>How to Change the Mascot Image</h3>
+        <ol>
+            <li>Open <b>Settings / Preferences</b> in IntelliJ.</li>
+            <li>Navigate to <b>Tools → Corner Mascot</b>.</li>
+            <li>Click the <b>Browse</b> button.</li>
+            <li>Select any PNG/JPG image from your local machine.</li>
+            <li>Press <b>Apply</b> or <b>OK</b> to save.</li>
+        </ol>
+
+        <p>
+            The plugin will automatically use the selected image.
+            If no custom image is selected, the default mascot will be shown.
+        </p>
     ]]></description>
 
     <change-notes><![CDATA[
