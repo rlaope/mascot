@@ -17,15 +17,15 @@ Users can fully customize the mascot image via the Settings UI without rebuildin
 
 Run the plugin build command:
 
-"""
+```
 ./gradlew buildPlugin
-"""
+```
 
 The distributable ZIP file will be created in:
 
-"""
+```
 build/distributions/
-"""
+```
 
 ---
 
@@ -111,15 +111,15 @@ Each update requires:
    or
    Use the CLI:
 
-"""
+```
 ./gradlew publishPlugin
-"""
+```
 
 ---
 
 # Project Structure
 
-"""
+```
 corner-image-plugin/
 build.gradle.kts
 settings.gradle.kts
@@ -134,7 +134,7 @@ META-INF/
 plugin.xml
 icons/
 mascot.png
-"""
+```
 
 ---
 
