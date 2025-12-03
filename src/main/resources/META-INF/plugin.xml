@@ -4,11 +4,10 @@
     <vendor email="piyrw9754@gmail.com" url="https://github.com/rlaope">khope</vendor>
     <version>1.0.0</version>
 
-    <idea-version since-build="241" until-build="251.*"/>
+    <idea-version since-build="241" until-build="999.*"/>
 
     <description><![CDATA[
-        IDE 화면 우하단에 캐릭터 이미지를 띄우는 플러그인입니다.<br>
-        설정 메뉴에서 로컬 이미지를 선택해 커스터마이즈할 수 있습니다.
+        This plugin displays a small mascot image at the bottom-right corner of the IntelliJ window, and allows users to set a custom local image through the settings panel.
     ]]></description>
 
     <change-notes><![CDATA[
@@ -20,5 +19,6 @@
     <extensions defaultExtensionNs="com.intellij">
         <postStartupActivity implementation="com.khope.cornermascot.CornerMascotStartupActivity"/>
         <applicationConfigurable instance="com.khope.cornermascot.MascotSettingsConfigurable"/>
+        <applicationService serviceImplementation="com.khope.cornermascot.MascotSettingsState"/>
     </extensions>
 </idea-plugin>
