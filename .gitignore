@@ -26,3 +26,5 @@ kotlinc/
 
 # JetBrains plugin cache
 pluginVerifier-ides/
+
+.env
