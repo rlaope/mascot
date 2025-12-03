@@ -1,4 +1,6 @@
-# Mascot
+# [Mascot](https://plugins.jetbrains.com/plugin/29240-corner-mascot)
+
+https://plugins.jetbrains.com/plugin/29240-corner-mascot
 
 A lightweight IntelliJ IDEA plugin that displays a small mascot image in the bottom-right corner of the IDE window.
 Users can fully customize the mascot image via the Settings UI without rebuilding the plugin.
