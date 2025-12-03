@@ -1,49 +1,28 @@
+# IntelliJ
+.idea/
+*.iml
+out/
 
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Build outputs
+build/
+tmp/
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# Gradle
+.gradle/
+gradle-app.setting
 
-# testing
-/coverage
+# Logs
+*.log
 
-# production
-/build
-
-# misc
+# OS files
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.vscode
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Plugin distribution zips
+*.zip
+*.jar
 
-dist
-lib
+# Kotlin incremental build caches
+kotlinc/
 
-node_modules
-
-# Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Editor directories and files
-.idea
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# VS Code
-
-.temp
-.cache
-cache
+# JetBrains plugin cache
+pluginVerifier-ides/
