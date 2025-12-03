@@ -4,7 +4,7 @@
     <vendor email="piyrw9754@gmail.com" url="https://github.com/rlaope">khope</vendor>
     <version>1.0.0</version>
 
-    <idea-version since-build="241" until-build="999.*"/>
+    <idea-version since-build="241"/>
 
     <description><![CDATA[
         This plugin displays a small mascot image at the bottom-right corner of the IntelliJ window, and allows users to set a custom local image through the settings panel.
