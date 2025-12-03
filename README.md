@@ -51,6 +51,8 @@ You can:
 
 ---
 
+![](/assets/roxy.png)
+
 # Marketplace Upload Guide
 
 This section explains exactly how to publish this plugin to **JetBrains Marketplace**.
@@ -82,11 +84,11 @@ Marketplace automatically validates and publishes it.
 
 To enable CLI publishing, configure your `build.gradle.kts`:
 
-"""
+```
 publishPlugin {
 token.set(System.getenv("JB_PLUGIN_TOKEN"))
 }
-"""
+```
 
 Generate your token here:
 
@@ -94,10 +96,10 @@ Generate your token here:
 
 Then publish via:
 
-"""
+```
 export JB_PLUGIN_TOKEN=your_token_here
 ./gradlew publishPlugin
-"""
+```
 
 ---
 
