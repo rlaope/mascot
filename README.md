@@ -13,6 +13,8 @@ Users can fully customize the mascot image via the Settings UI without rebuildin
 * Settings are persisted across IDE restarts.
 * Includes fallback default mascot if user customization is not provided.
 
+![](/assets/roxy.png)
+
 ### How to Change the Mascot Image
 
 - Open **Settings / Preferences**
@@ -22,10 +24,8 @@ Users can fully customize the mascot image via the Settings UI without rebuildin
 
 ![](/assets/guide.png)
 
-
 ---
 
-![](/assets/roxy.png)
 
 # How to Build
 
