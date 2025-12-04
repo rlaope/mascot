@@ -97,6 +97,8 @@ class MascotSettingsConfigurable : Configurable {
         settings.mascotWidth = widthField?.text?.toIntOrNull() ?: 120
         settings.mascotHeight = heightField?.text?.toIntOrNull() ?: 120
 
-        CornerMascotStartupActivity.reloadMascot()
+        SwingUtilities.invokeLater {
+            CornerMascotStartupActivity.reloadMascot()
+        }
     }
 }
