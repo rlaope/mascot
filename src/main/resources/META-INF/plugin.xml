@@ -2,7 +2,7 @@
     <id>com.khope.cornermascot</id>
     <name>Corner Mascot</name>
     <vendor email="piyrw9754@gmail.com" url="https://github.com/rlaope">khope</vendor>
-    <version>1.0.3</version>
+    <version>1.0.5</version>
 
     <idea-version since-build="241" until-build="252.*"/>
 
@@ -15,7 +15,7 @@
         <h3>How to Change the Mascot Image</h3>
         <ol>
             <li>Open <b>Settings / Preferences</b>.</li>
-            <li>Go to <b>Tools → Corner Mascot</b>.</li>
+            <li>Navigate to <b>Tools → Corner Mascot</b>.</li>
             <li>Click <b>Browse</b> and select any image.</li>
             <li>Press <b>Apply</b> or <b>OK</b>.</li>
         </ol>
@@ -26,20 +26,28 @@
     ]]></description>
 
     <change-notes><![CDATA[
-        - First release<br>
+        - Fix: settings panel loading freeze<br>
+        - Fix: correct Configurable registration<br>
+        - Improved compatibility<br>
     ]]></change-notes>
 
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
 
-        <!-- Startup -->
-        <postStartupActivity implementation="com.khope.cornermascot.CornerMascotStartupActivity"/>
+        <!-- Service -->
+        <applicationService
+                serviceImplementation="com.khope.cornermascot.MascotSettingsState"/>
 
-        <!-- Settings panel -->
+        <!-- Startup overlay -->
+        <postStartupActivity
+                implementation="com.khope.cornermascot.CornerMascotStartupActivity"/>
+
+        <!-- SETTINGS PANEL (Provider + Configurable) -->
         <applicationConfigurable
                 id="com.khope.cornermascot.settings"
                 displayName="Corner Mascot"
-                instance="com.khope.cornermascot.MascotSettingsConfigurable"/>
+                groupId="tools"
+                provider="com.khope.cornermascot.MascotSettingsConfigurableProvider"/>
     </extensions>
 </idea-plugin>

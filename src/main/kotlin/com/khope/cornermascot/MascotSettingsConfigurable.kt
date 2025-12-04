@@ -21,19 +21,15 @@ class MascotSettingsConfigurable : Configurable {
 
         browseButton.addActionListener {
             val chooser = JFileChooser()
-            chooser.fileSelectionMode = JFileChooser.FILES_ONLY
             val result = chooser.showOpenDialog(null)
-
             if (result == JFileChooser.APPROVE_OPTION) {
-                val file = chooser.selectedFile
-                if (file.exists()) {
-                    pathField.text = file.absolutePath
-                }
+                pathField.text = chooser.selectedFile.absolutePath
             }
         }
 
         panel.add(pathField)
         panel.add(browseButton)
+
         return panel
     }
 
