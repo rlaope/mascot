@@ -1,44 +1,35 @@
 package com.khope.cornermascot
 
 import com.intellij.openapi.options.Configurable
-import javax.swing.JButton
-import javax.swing.JComponent
-import javax.swing.JFileChooser
-import javax.swing.JLabel
-import javax.swing.JPanel
-import javax.swing.JTextField
+import javax.swing.*
 
 class MascotSettingsConfigurable : Configurable {
 
-    private lateinit var panel: JPanel
-    private lateinit var pathField: JTextField
-    private lateinit var browseButton: JButton
+    private var panel: JPanel? = null
+    private var pathField: JTextField? = null
     private lateinit var descriptionLabel: JLabel
 
     override fun getDisplayName(): String = "Corner Mascot"
 
     override fun createComponent(): JComponent {
-        panel = JPanel()
+        val p = JPanel()
+        p.layout = BoxLayout(p, BoxLayout.Y_AXIS)
 
         descriptionLabel = JLabel(
-            """
-            <html>
-            <body>
-                <b>Select a local image file to use as the mascot.</b><br>
-                Supported: PNG / JPG<br>
-                After selecting an image, click <b>Apply</b> to update immediately.
-            </body>
-            </html>
-            """.trimIndent()
+            "<html><body>" +
+                    "<b>Select a local image file to use as the bottom-right mascot.</b><br>" +
+                    "Supported formats: PNG / JPG.<br>" +
+                    "After selecting an image, click Apply to update immediately." +
+                    "</body></html>"
         )
 
-        pathField = JTextField(30)
-        browseButton = JButton("Browse")
+        val field = JTextField(30)
+        val btn = JButton("Browse")
 
         val settings = MascotSettingsState.instance
-        pathField.text = settings.imagePath
+        field.text = settings.imagePath
 
-        browseButton.addActionListener {
+        btn.addActionListener {
             val chooser = JFileChooser()
             chooser.fileSelectionMode = JFileChooser.FILES_ONLY
             val result = chooser.showOpenDialog(null)
@@ -46,30 +37,32 @@ class MascotSettingsConfigurable : Configurable {
             if (result == JFileChooser.APPROVE_OPTION) {
                 val file = chooser.selectedFile
                 if (file.exists()) {
-                    pathField.text = file.absolutePath
+                    field.text = file.absolutePath
                 }
             }
         }
 
-        panel.layout = java.awt.BorderLayout()
+        val row = JPanel()
+        row.add(field)
+        row.add(btn)
 
-        val top = JPanel()
-        top.add(pathField)
-        top.add(browseButton)
+        p.add(descriptionLabel)
+        p.add(Box.createVerticalStrut(10))
+        p.add(row)
 
-        panel.add(descriptionLabel, java.awt.BorderLayout.NORTH)
-        panel.add(top, java.awt.BorderLayout.CENTER)
+        panel = p
+        pathField = field
 
-        return panel
+        return p
     }
 
     override fun isModified(): Boolean {
         val settings = MascotSettingsState.instance
-        return settings.imagePath != pathField.text
+        return settings.imagePath != pathField?.text
     }
 
     override fun apply() {
-        MascotSettingsState.instance.imagePath = pathField.text
+        MascotSettingsState.instance.imagePath = pathField?.text ?: ""
         CornerMascotStartupActivity.reloadMascot()
     }
 }
