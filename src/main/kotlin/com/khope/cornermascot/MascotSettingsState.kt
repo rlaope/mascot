@@ -12,11 +12,15 @@ import com.intellij.openapi.components.service
 class MascotSettingsState : PersistentStateComponent<MascotSettingsState> {
 
     var imagePath: String = ""
+    var mascotWidth: Int = 120
+    var mascotHeight: Int = 120
 
     override fun getState(): MascotSettingsState = this
 
     override fun loadState(state: MascotSettingsState) {
         this.imagePath = state.imagePath
+        this.mascotWidth = state.mascotWidth
+        this.mascotHeight = state.mascotHeight
     }
 
     companion object {

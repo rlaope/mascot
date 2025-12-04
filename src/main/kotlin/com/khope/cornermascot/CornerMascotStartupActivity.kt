@@ -20,9 +20,15 @@ class CornerMascotStartupActivity : StartupActivity {
             val layered = layeredPane ?: return
             val frame = frameRef ?: return
 
-            mascotComponent?.let { layered.remove(it) }
+            mascotComponent?.let {
+                layered.remove(it)
+                layered.revalidate()
+                layered.repaint()
+            }
 
             val settings = MascotSettingsState.instance
+            val width  = settings.mascotWidth
+            val height = settings.mascotHeight
 
             val rawImage: Image =
                 if (settings.imagePath.isNotBlank() && File(settings.imagePath).exists()) {
@@ -31,12 +37,10 @@ class CornerMascotStartupActivity : StartupActivity {
                     ImageIcon(CornerMascotStartupActivity::class.java.classLoader.getResource("icons/mascot.png")).image
                 }
 
-            val fixedWidth = 120
-            val fixedHeight = 120
-            val image = rawImage.getScaledInstance(fixedWidth, fixedHeight, Image.SCALE_SMOOTH)
+            val image = rawImage.getScaledInstance(width, height, Image.SCALE_SMOOTH)
 
             val newComponent = object : JComponent() {
-                override fun getPreferredSize(): Dimension = Dimension(fixedWidth, fixedHeight)
+                override fun getPreferredSize(): Dimension = Dimension(width, height)
                 override fun paintComponent(g: Graphics) {
                     super.paintComponent(g)
                     g.drawImage(image, 0, 0, width, height, this)
@@ -48,9 +52,9 @@ class CornerMascotStartupActivity : StartupActivity {
 
             fun reposition() {
                 val size = layered.size
-                val x = size.width - fixedWidth - 30
-                val y = size.height - fixedHeight - 40
-                newComponent.setBounds(x, y, fixedWidth, fixedHeight)
+                val x = size.width - width - 30
+                val y = size.height - height - 40
+                newComponent.setBounds(x, y, width, height)
                 newComponent.revalidate()
                 newComponent.repaint()
             }
