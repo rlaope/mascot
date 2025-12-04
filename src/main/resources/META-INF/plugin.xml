@@ -2,7 +2,7 @@
     <id>com.khope.cornermascot</id>
     <name>Corner Mascot</name>
     <vendor email="piyrw9754@gmail.com" url="https://github.com/rlaope">khope</vendor>
-    <version>1.0.1</version>
+    <version>1.0.3</version>
 
     <idea-version since-build="241" until-build="252.*"/>
 
@@ -14,16 +14,14 @@
 
         <h3>How to Change the Mascot Image</h3>
         <ol>
-            <li>Open <b>Settings / Preferences</b> in IntelliJ.</li>
-            <li>Navigate to <b>Tools → Corner Mascot</b>.</li>
-            <li>Click the <b>Browse</b> button.</li>
-            <li>Select any PNG/JPG image from your local machine.</li>
-            <li>Press <b>Apply</b> or <b>OK</b> to save.</li>
+            <li>Open <b>Settings / Preferences</b>.</li>
+            <li>Go to <b>Tools → Corner Mascot</b>.</li>
+            <li>Click <b>Browse</b> and select any image.</li>
+            <li>Press <b>Apply</b> or <b>OK</b>.</li>
         </ol>
 
         <p>
-            The plugin will automatically use the selected image.
-            If no custom image is selected, the default mascot will be shown.
+            If no custom image is selected, the default mascot will be used.
         </p>
     ]]></description>
 
@@ -34,8 +32,14 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
+
+        <!-- Startup -->
         <postStartupActivity implementation="com.khope.cornermascot.CornerMascotStartupActivity"/>
-        <applicationConfigurable instance="com.khope.cornermascot.MascotSettingsConfigurable"/>
-        <applicationService serviceImplementation="com.khope.cornermascot.MascotSettingsState"/>
+
+        <!-- Settings panel -->
+        <applicationConfigurable
+                id="com.khope.cornermascot.settings"
+                displayName="Corner Mascot"
+                instance="com.khope.cornermascot.MascotSettingsConfigurable"/>
     </extensions>
 </idea-plugin>
