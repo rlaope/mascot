@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.khope.cornermascot"
-version = "1.0.5.1"
+version = "1.0.5.2"
 
 repositories {
     mavenCentral()
