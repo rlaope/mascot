@@ -17,6 +17,18 @@ import java.awt.event.ComponentEvent
 
 class CornerMascotStartupActivity : StartupActivity {
 
+    companion object {
+        private var mascotComponent: JComponent? = null
+
+        fun reloadMascot() {
+            mascotComponent?.let { comp ->
+                val parent = comp.parent
+                parent?.remove(comp)
+                parent?.repaint()
+            }
+        }
+    }
+
     override fun runActivity(project: Project) {
         EventQueue.invokeLater {
             val frame = WindowManager.getInstance().getFrame(project) ?: return@invokeLater

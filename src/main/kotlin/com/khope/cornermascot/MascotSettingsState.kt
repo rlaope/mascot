@@ -1,11 +1,14 @@
 package com.khope.cornermascot
 
-import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
+import com.intellij.openapi.components.service
 
-@State(name = "CornerMascotSettings", storages = [Storage("cornerMascot.xml")])
+@State(
+    name = "CornerMascotSettings",
+    storages = [Storage("cornerMascot.xml")]
+)
 class MascotSettingsState : PersistentStateComponent<MascotSettingsState> {
 
     var imagePath: String = ""
@@ -18,6 +21,6 @@ class MascotSettingsState : PersistentStateComponent<MascotSettingsState> {
 
     companion object {
         val instance: MascotSettingsState
-            get() = ApplicationManager.getApplication().getService(MascotSettingsState::class.java)
+            get() = service()
     }
 }
