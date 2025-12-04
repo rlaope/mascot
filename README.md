@@ -13,6 +13,16 @@ Users can fully customize the mascot image via the Settings UI without rebuildin
 * Settings are persisted across IDE restarts.
 * Includes fallback default mascot if user customization is not provided.
 
+### How to Change the Mascot Image
+
+- Open **Settings / Preferences**
+- Navigate to **Tools → Corner Mascot.**
+- Click **Browse** and select any image.
+- Press **Apply** or **OK.**
+
+![](/assets/guide.png)
+
+
 ---
 
 ![](/assets/roxy.png)
