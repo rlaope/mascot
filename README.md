@@ -22,7 +22,7 @@ Users can fully customize the mascot image via the Settings UI without rebuildin
 - Click **Browse** and select any image.
 - Press **Apply** or **OK.**
 
-![](/assets/guide.png)
+![](/assets/guide2.png)
 
 ---
 
